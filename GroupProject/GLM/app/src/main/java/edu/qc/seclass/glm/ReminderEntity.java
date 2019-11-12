@@ -13,19 +13,20 @@ import androidx.room.PrimaryKey;
                         childColumns = "type_id",
                         onDelete = ForeignKey.CASCADE
             )
-        })
+        }
+        )
 public class ReminderEntity {
 
     @PrimaryKey (autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "reminder_id")
-    public int reminderID;
+    public Long reminderID;
 
     @ColumnInfo(name = "description")
     public String description;
 
     @ColumnInfo(name = "type_id")
-    public int type_id;
+    public Long type_id;
 
     @ColumnInfo(name = "is_checked")
     public boolean isChecked;
@@ -33,17 +34,17 @@ public class ReminderEntity {
     @ColumnInfo(name = "alert")
     public Alert alert;
 */
-    public ReminderEntity  (String description, int type_id, boolean isChecked) {
+    public ReminderEntity  (String description, Long type_id) {
         this.description = description;
         this.type_id = type_id;
-        this.isChecked = isChecked();
+        this.isChecked = false;
     }
 
-    public int getReminderID() {
+    public Long getReminderID() {
         return reminderID;
     }
 
-    public void setReminderID(int uid) {
+    public void setReminderID(Long uid) {
         this.reminderID = uid;
     }
 
@@ -55,11 +56,11 @@ public class ReminderEntity {
         this.description = desc;
     }
 
-    public int getType_id() {
+    public Long getType_id() {
         return type_id;
     }
 
-    public void setType_id(int type_id) {
+    public void setType_id(Long type_id) {
         this.type_id = type_id;
     }
 

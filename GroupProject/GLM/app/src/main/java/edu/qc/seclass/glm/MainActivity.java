@@ -3,14 +3,15 @@ package edu.qc.seclass.glm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import androidx.room.Room;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,16 +20,22 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableListAdapter listAdapter;
     private List<ReminderList> listDataHeader;
     Button createButton;
-    private ReminderDatabase db;
+    ReminderViewModel RVM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = Room.databaseBuilder(getApplicationContext(), ReminderDatabase.class, "database-name").build();
+        RVM = new ViewModelProvider(this).get(ReminderViewModel.class);
+ReminderEntity re = RVM.getReminder("Test Reminder");
+        System.out.println(re.getDescription());
 
-
+//        LiveData<List<ReminderEntity>> liveData = RVM.getAllWords();
+//        List<ReminderEntity> reminders = liveData.getValue();
+//        for (ReminderEntity entity: reminders) {
+//            System.out.println("DESCRIPTION: " + entity.getDescription());
+//        }
         listView = (ExpandableListView) findViewById(R.id.ExpandLV);
         displayLists();
         listAdapter = new ExpandableListAdapter(this, listDataHeader, MainActivity.this);
@@ -105,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Displays the list to the main activity screen
-    private void displayLists() {/*
+    private void displayLists() {
         listDataHeader = new ArrayList<>();
-
+/*
         ReminderType defaultType = new ReminderType("Reminders");
         ReminderList defaultList = new ReminderList("Reminders",defaultType);
         Reminder r1 = new Reminder("Buy Groceries",defaultType);

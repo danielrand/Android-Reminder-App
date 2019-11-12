@@ -29,7 +29,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
  * The fact that this has very few comments emphasizes its coolness.
  */
 
-@Database(entities = {ReminderEntity.class}, version = 1)
+@Database(entities = {ReminderEntity.class, TypeEntity.class}, version = 4)
 public abstract class ReminderDatabase extends RoomDatabase {
 
     public abstract ReminderDao reminderDao();
@@ -45,6 +45,8 @@ public abstract class ReminderDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ReminderDatabase.class, "reminder_database")
                             .addCallback(sRoomDatabaseCallback)
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                             .build();
                 }
             }
@@ -86,13 +88,15 @@ public abstract class ReminderDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
+
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
+            System.out.println("POPULATING");
             TypeEntity defaultType = new TypeEntity("Reminders");
             tDao.insertAll(defaultType);
-            //ReminderEntity a = new ReminderEntity("FINISH REMINDER APP", defaultType.typeID);
+            ReminderEntity reminder = new ReminderEntity("Test Reminder",defaultType.typeID);
+            rDao.insertAll(reminder);
             //ReminderEntity b = new ReminderEntity(r2);
-            //rDao.insertAll(a);
             return null;
         }
     }

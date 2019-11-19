@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    style="@style/AppTheme"
+    android:background="#A5E3FF">
+
+    <ExpandableListView
+        android:id="@+id/ExpandLV"
+        android:layout_below="@id/createButton"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:divider="#476877"
+        android:dividerHeight="2dp">
+    </ExpandableListView>
+    <View
+        android:id="@+id/dividerView2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/ExpandLV"
+        android:background="#476877"/>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/createButton"
+        android:background="#476877"/>
+
+    <Button
+        android:id="@+id/createButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:divider="#476877"
+        android:dividerHeight="2dp"
+        android:drawableLeft="@drawable/ic_plus"
+        android:paddingLeft="0dp" />
+
+    <!--Overlay-->
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#50000000"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:clickable="true">
+    </View>
+
+<!--    <View-->
+<!--        android:id="@+id/createCenterView"-->
+<!--        android:layout_width="202dp"-->
+<!--        android:layout_height="83dp"-->
+<!--        android:background="#5E8DA2"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginBottom="9dp"-->
+<!--        android:visibility="gone">-->
+<!--    </View>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/createReminder"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_above="@id/cancel"-->
+<!--        android:layout_marginBottom="1dp"-->
+<!--        android:text="Create Reminder"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="#ddf4ff"-->
+<!--        android:background="#76B4D0"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:visibility="gone"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/createList"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_above="@id/cancel"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginBottom="1dp"-->
+<!--        android:text="Create List"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textColor="#ddf4ff"-->
+<!--        android:background="#76B4D0"-->
+<!--        android:visibility="gone"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/cancel"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="#76B4D0"-->
+<!--        android:text="Cancel"-->
+<!--        android:textColor="#CA6A6A"-->
+<!--        android:textStyle="bold"-->
+<!--        android:visibility="gone"/>-->
+
+
+</RelativeLayout>

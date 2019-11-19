@@ -6,7 +6,6 @@
 
 The product we are developing is a simple and easy to use Android application to manage tasks that a user wants to be reminded of.  The key feature of the app is the orginization of reminders into heirarchical lists grouped by category.
 
-
 ## 2. Process Description
 
 ### Main Activity:
@@ -79,8 +78,8 @@ The product we are developing is a simple and easy to use Android application to
 
 | Team Member       | Roles                             |
 |-------------------|-----------------------------------|
-| Daniel Rand       | Project Manager, Backend Engineer |
+| Daniel Rand       | Project Manager, Backend Engineer, Database Engineer|
 | Torendra Rasik    | Test Engineer, Documentation      |
-| Jeffrey Kim       |                                   |
-| Jonas Improgo     |                                   |
-| Nana Kodjo Acquah |                                   |
+| Jeffrey Kim       | Frontend Engineer, Test Engineer  |
+| Jonas Improgo     | User Interface Designer, Frontend Engineer, Backend Engineer|
+| Nana Kodjo Acquah | Database Engineer, Documentation  |

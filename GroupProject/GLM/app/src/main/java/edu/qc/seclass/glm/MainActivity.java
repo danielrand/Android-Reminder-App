@@ -26,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+// By Daniel Rand, Torendra Rasik, Jeffrey Kim, Jonas Improgo, and Nana Kodjo Acquah - Asare
+
 public class MainActivity extends AppCompatActivity{
 
     public static final int CREATE_REMINDER_REQUEST_CODE = 1;

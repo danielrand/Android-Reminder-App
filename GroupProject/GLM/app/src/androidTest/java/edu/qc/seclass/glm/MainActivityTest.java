@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -45,7 +46,7 @@ public class MainActivityTest {
         }
 
         try {
-            onView(withId(R.id.editReminderCancel)).perform(click());
+            onView(withId(R.id.createReminderCancel)).perform(click());
             onView(allOf(withId(R.id.listButton), hasSibling(withText("Test")))).perform(click());
             onView(withText("Delete List")).perform(click());
         } catch (NoMatchingViewException e) {
@@ -96,6 +97,23 @@ public class MainActivityTest {
     }
 
     @Test
+    public void AddReminderToExistingListTest() {
+        onView(withId(R.id.createButton)).perform(click());
+        onView(withId(R.id.inputType)).perform(typeText("Test"), closeSoftKeyboard());
+        onView(withId(R.id.inputDescription)).perform(typeText("Test Reminder"), closeSoftKeyboard());
+        onView(withId(R.id.createReminderDone)).perform(click());
+
+        onView(allOf(withId(R.id.listButton), hasSibling(withText("Test")))).perform(click());
+        onView(withText("Create New Reminder")).perform(click());
+        onView(withId(R.id.inputDescription)).perform(typeText("Test Reminder 2"), closeSoftKeyboard());
+        onView(withId(R.id.createReminderDone)).perform(click());
+
+        onView(allOf(withId(R.id.remListTitle), withText(startsWith("Test")))).perform(click());
+        onView(allOf(withId(R.id.remItemName), withText("Test Reminder"))).perform(click());
+        onView(allOf(withId(R.id.remItemName), withText("Test Reminder 2"))).perform(click());
+    }
+
+    @Test
     public void EditReminderActivityLaunchTest() {
         onView(withId(R.id.createButton)).perform(click());
         onView(withId(R.id.inputType)).perform(typeText("Test"), closeSoftKeyboard());
@@ -104,7 +122,50 @@ public class MainActivityTest {
 
         onView(allOf(withId(R.id.remListTitle), withText(startsWith("Test")))).perform(click());
         onView(allOf(withId(R.id.btnEdit), hasSibling(withText("Test Reminder")))).perform(click());
-        onView(withId((R.id.editReminderTitle))).check(matches(withText("Edit Reminder")));
+        onView(withId((R.id.createReminderTitle))).check(matches(withText("Edit Reminder")));
+    }
+
+    @Test
+    public void EditDescriptionInExistingReminderTest(){
+        onView(withId(R.id.createButton)).perform(click());
+        onView(withId(R.id.inputType)).perform(typeText("Test"), closeSoftKeyboard());
+        onView(withId(R.id.inputDescription)).perform(typeText("Test Reminder"), closeSoftKeyboard());
+        onView(withId(R.id.createReminderDone)).perform(click());
+
+        onView(allOf(withId(R.id.remListTitle), withText(startsWith("Test")))).perform(click());
+        onView(allOf(withId(R.id.btnEdit), hasSibling(withText("Test Reminder")))).perform(click());
+        onView(withId((R.id.createReminderTitle))).check(matches(withText("Edit Reminder")));
+
+        onView(withId(R.id.inputDescription)).perform(replaceText("Changed Reminder"), closeSoftKeyboard());
+        onView(withId(R.id.createReminderDone)).perform(click());
+        onView(allOf(withId(R.id.remItemName), withText(startsWith("Changed Reminder")))).perform(click());
+    }
+
+    @Test
+    public void EditAlertInExistingReminderTest(){
+        onView(withId(R.id.createButton)).perform(click());
+        onView(withId(R.id.inputType)).perform(typeText("Test"), closeSoftKeyboard());
+        onView(withId(R.id.inputDescription)).perform(typeText("Do Testing for 370"), closeSoftKeyboard());
+        onView(withId(R.id.inputTimeButton)).perform(click());
+        onView(withClassName(Matchers.equalTo(TimePicker.class.getName()))).perform(PickerActions.setTime(6, 30));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.inputDateButton)).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2019, 12, 31));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.createReminderDone)).perform(click());
+        onView(allOf(withId(R.id.remListTitle), withText(startsWith("Test")))).perform(click());
+        onView(allOf(withId(R.id.remAlert), hasSibling(withText("Do Testing for 370")), withText(startsWith("Alert: Tue, Dec 31 2019 at 6:30 AM")))).perform(click());
+
+        onView(allOf(withId(R.id.btnEdit), hasSibling(withText("Do Testing for 370")))).perform(click());
+        onView(withId((R.id.createReminderTitle))).check(matches(withText("Edit Reminder")));
+        onView(withId(R.id.inputTimeButton)).perform(click());
+        onView(withClassName(Matchers.equalTo(TimePicker.class.getName()))).perform(PickerActions.setTime(12, 30));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.inputDateButton)).perform(click());
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2020, 1, 1));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.createReminderDone)).perform(click());
+        onView(allOf(withId(R.id.remAlert), hasSibling(withText("Do Testing for 370")), withText(startsWith("Alert: Wed, Jan 01 2020 at 12:30 PM")))).perform(click());
     }
 
     @Test

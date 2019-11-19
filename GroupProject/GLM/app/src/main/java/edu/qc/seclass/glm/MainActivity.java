@@ -26,22 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-/*
-        TODO:   (Jonas)
-                Search Bar                                  [ ]
-                    - Pad searching from displaying @ end    [X]
-                    - Implementation                         [ ]
-                    - Visual                                 [X]
-                Dropdown Menu for Types                     [ ]
-                    - Implementation                         [ ]
-                    - Visual                                 [ ]
-                Glitchy Checkbox Visual Bug                 [ ] (?) May be due to process of retrieving information in childView (?)
-                Set Icon for Notifications                  [X]
-
-         Misc:  Default Reminder List
-                Delete List if no Reminder Lists Exist
-                Default Reminder Types
- */
 public class MainActivity extends AppCompatActivity{
 
     public static final int CREATE_REMINDER_REQUEST_CODE = 1;
@@ -199,7 +183,7 @@ public class MainActivity extends AppCompatActivity{
             mNotificationManager.createNotificationChannel(channel);
         }
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "YOUR_CHANNEL_ID")
-                .setSmallIcon(R.mipmap.ic_launcher_icon) // notification icon
+                .setSmallIcon(R.mipmap.ic_icon_bell_round) // notification icon
                 .setContentTitle(r.getType()) // title for notification
                 .setContentText(r.getDescription())// message for notification
                 .setAutoCancel(true);// clear notification after click

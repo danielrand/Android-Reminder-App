@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity{
             mNotificationManager.createNotificationChannel(channel);
         }
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext(), "YOUR_CHANNEL_ID")
-                .setSmallIcon(R.mipmap.ic_launcher_icon) // notification icon
+                .setSmallIcon(R.mipmap.ic_icon_bell_round) // notification icon
                 .setContentTitle(r.getType()) // title for notification
                 .setContentText(r.getDescription())// message for notification
                 .setAutoCancel(true);// clear notification after click

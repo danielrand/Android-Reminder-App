@@ -26,22 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-/*
-        TODO:   (Jonas)
-                Search Bar                                  [ ]
-                    - Pad searching from displaying @ end    [X]
-                    - Implementation                         [ ]
-                    - Visual                                 [X]
-                Dropdown Menu for Types                     [ ]
-                    - Implementation                         [ ]
-                    - Visual                                 [ ]
-                Glitchy Checkbox Visual Bug                 [ ] (?) May be due to process of retrieving information in childView (?)
-                Set Icon for Notifications                  [X]
-
-         Misc:  Default Reminder List
-                Delete List if no Reminder Lists Exist
-                Default Reminder Types
- */
 public class MainActivity extends AppCompatActivity{
 
     public static final int CREATE_REMINDER_REQUEST_CODE = 1;

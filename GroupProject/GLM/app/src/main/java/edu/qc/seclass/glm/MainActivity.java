@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-// By Daniel Rand, Torendra Rasik, Jeffrey Kim, Jonas Improgo, and Nana Kodjo Acquah - Asare
+// By Daniel Rand, Torendra Rasik, Jeffrey Kim, Jonas Improgo, and Nana Kodjo Acquah
 
 public class MainActivity extends AppCompatActivity{
 

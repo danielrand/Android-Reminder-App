@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A5E3FF">
+
+    <TextView
+        android:id="@+id/createReminderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#76B4D0"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Create Reminder"
+        android:textColor="#1C2529"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/createReminderTitle"
+        android:layout_height="2dp"
+        android:background="#5E8DA2">
+    </View>
+
+    <!--Type-->
+    <TextView
+        android:id="@+id/createType"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/lineView"
+        android:text="Type:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/inputType"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/lineView"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createType"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="Enter the type of reminder"
+        android:paddingTop="2dp"
+        android:singleLine="true"
+        android:textSize="13sp" />
+
+    <View
+        android:id="@+id/lineView1"
+        android:layout_width="match_parent"
+        android:layout_below="@id/createType"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:background="#5E8DA2">
+    </View>
+
+    <!--Description-->
+    <TextView
+        android:id="@+id/createDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/lineView1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="top"
+        android:text="Description:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/inputDescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/lineView1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createDescription"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="Enter a description"
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:textSize="13dp" />
+
+    <View
+        android:id="@+id/lineView2"
+        android:layout_width="match_parent"
+        android:layout_below="@id/inputDescription"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:background="#5E8DA2"/>
+
+    <!--Alert-->
+    <TextView
+        android:id="@+id/createAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_below="@id/lineView2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Alert:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"/>
+
+    <View
+        android:id="@+id/lineView3"
+        android:layout_width="match_parent"
+        android:layout_below="@id/createAlert"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:background="#5E8DA2"/>
+
+    <!--Time-->
+    <TextView
+        android:id="@+id/createTime"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/lineView3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createAlert"
+        android:text="Time:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/inputTime"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/lineView3"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createTime"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="Set a time"
+        android:inputType="datetime"
+        android:paddingTop="2dp"
+        android:textSize="13dp" />
+
+    <View
+        android:id="@+id/lineView4"
+        android:layout_width="match_parent"
+        android:layout_below="@id/createTime"
+        android:layout_height="2dp"
+        android:background="#5E8DA2"
+        android:layout_toRightOf="@id/createAlert"
+        android:layout_marginLeft="10dp"/>
+
+    <!--Location-->
+    <TextView
+        android:id="@+id/createLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/createTime"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createAlert"
+        android:text="Location:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/inputLocation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/createTime"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/createLocation"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="Set a location"
+        android:paddingTop="2dp"
+        android:textSize="13dp" />
+
+    <View
+        android:id="@+id/lineView5"
+        android:layout_width="match_parent"
+        android:layout_below="@id/createLocation"
+        android:layout_height="2dp"
+        android:background="#5E8DA2"
+        android:layout_toRightOf="@id/createAlert"
+        android:layout_marginLeft="10dp"/>
+
+
+    <View
+        android:id="@+id/centerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true">
+    </View>
+
+    <View
+        android:id="@+id/borderView"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:background="#5E8DA2">
+    </View>
+
+    <Button
+        android:id="@+id/createReminderCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignRight="@id/centerView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="1dp"
+        android:text="Cancel"
+        android:textColor="#CA6A6A"
+        android:background="#76B4D0"/>
+
+    <Button
+        android:id="@+id/createReminderDone"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@id/centerView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="1dp"
+
+        android:text="Done"
+        android:textStyle="bold"
+        android:textColor="#AEE0B6"
+        android:background="#76B4D0"/>
+
+
+
+</RelativeLayout>

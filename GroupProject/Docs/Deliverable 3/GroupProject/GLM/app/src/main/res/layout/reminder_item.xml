@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#8FDDFF"
+    style="@style/AppTheme"
+    android:id="@+id/remLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBox
+        android:id="@+id/remItem"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="10dp"
+        android:textColor="#476877"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/remItemName"
+        android:textSize="18dp"
+        android:textColor="#476877"
+        android:paddingTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/remItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--This is the description of the reminder-->
+    <TextView
+        android:id="@+id/remDescription"
+        android:textSize="12dp"
+        android:textColor="#476877"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/remItemName"
+        android:layout_toRightOf="@id/remItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btnEdit"/>
+
+    <!--This should include the location/time for an ALERT-->
+    <TextView
+        android:id="@+id/remAlert"
+        android:textSize="12dp"
+        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:textColor="#476877"
+        android:layout_below="@id/remDescription"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/remItem"
+        android:layout_toLeftOf="@id/btnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:drawableStart="@drawable/ic_delete"
+        android:paddingLeft="12.5dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="#8FDDFF"/>
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@id/btnDelete"
+        android:layout_centerInParent="true"
+        android:drawableStart="@drawable/ic_edit"
+        android:paddingLeft="12.5dp"
+        android:background="#8FDDFF"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
+
+
+</RelativeLayout>

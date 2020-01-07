@@ -1,1 +1,2 @@
-# 370Fall19Team4b
+# Android Reminder App
+Sdk available in GrouptProject/APK/
